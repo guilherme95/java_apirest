@@ -1,0 +1,13 @@
+Em relação ao banco de dados, foi utilizado PostgresSQL 13.1 e para algumas administrações, pgAdmin 4.28;
+Para testes do CRUD, Postman v7.36.1
+
+A locação e verificação de disponibilidade dos livros podem ser feitas com o método GET na tabela registry, 
+onde são encontrados detalhes dos registros, do livro alugado e do cliente.
+Para a efetivação do aluguel, desenvolvi uma pequena regra no próprio método POST, logo, 
+é possível a verificação da disponibilidade tanto pelo GET quanto pelo POST (este impossibilita salvar em banco o registro quando um livro não está disponível).
+
+Já para a devolução, uma função distinta foi desenvolvido (deliveryBook). Esta contém as regras de multas e detalhes a 
+respeito do aluguél para a realização dos cálculos.
+A função está contida nos métodos PUT e PATCH, para então reaproveitar a mesma tabela e registro com o auxílio de uma flag.
+
+Os testes do CRUD foram todos feitos através do Postman, enviando dados simples em formato Json, ou seja, não foi desenvolvida interface para o projeto.
